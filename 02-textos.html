@@ -6,22 +6,39 @@
     <title>Formatação de Textos</title>
     <style>
         address {           
-            display: inline; /* Fazendo elemento ficar em linha */
-            font-style: normal; /* Tira o Itálico *\
-            text-decoration: underline; /* Volta o Sublinhado *\        
+            display: inline;    
+            text-decoration: underline; /* Sublinhado */
+            font-style: normal; /* Tira o Itálico */             
+        } 
+        strong {
+            color: red
         }
-        p {display: inline;
+        mark {
+            background-color:lightsalmon ;
+
         }
-    
-    </style>
+
+    h1 {
+        /* Valores para text-align:
+        left, right, center e justify */
+        text-align: center;
+    }
+    p.dir {
+        /* <p class="dir">  */
+        text-align: right;
+    }
+        
+        </style>
 </head>
 <body>
     <h1>Formatação de texto</h1>
     <!--Não usar tag <u> (Underline/Sublinhado)-->
     <!--Tag <adress> = endereço -->
-    <p> Orkutilson morava na <address>Rua Sobe e Desce, 333</address> e seu e-mail era <address>Orkutilson@gmail.com<address>        
+    <p class="dir">História baseada em fatos reais.</p>
+
+    <p> Orkutilson morava na <address>Rua Sobe e Desce, 333</address> e seu e-mail era <address>Orkutilson@gmail.com</address>        
     </p> 
-<!--<i> = Itálico (Visual apenas)
+<!--<i> = Itálico (Visual apenas)<
     <b> = negrito (bold) (visual)
 
     <strong> = texto mais importante (forte em inglês) (SEMÂNTICA)
@@ -40,5 +57,22 @@
     <p>Orkutilson também gostava de fórmulas. Suas preferidas eram H<sub>2</sub>O e E = mc<sup>2</sup></p>.
     <!-- <sub> = Texto Subscrito
          <sup> = Texto Sobrescrito (Superscript)-->
+<p>Sua frase favorita era <quote>"Penso, logo existo"(Descartes)</quote></p>
+<blockquote>
+    Há tantos mundos diferentes<br>
+    Tantos sóis diferentes<br>
+    E nós temos apenas um mundo<br>
+    Mas vivemos em mundos diferentes.
+    (Dire Straits, Brothers In Arms)
+</blockquote>
+<!--<abbr> = Definição de abreviações
+    <code> = representa código de programação ou marcação. No caso HTML, os sinais < e > precisam ser substituídos por &lt; e &gt; respectivamente.
+        -->
+    <p>Em suas horas vagas, Orkutilson era um membro ativo da <abbr title="Associação Comercial do Bairro do Limão">ASCOBALI</abbr> estudava <abbr title="HyperText Markup Language">HTML</abbr>. Suas tags favoritas eram <code>&lt;blockquote&gt;</code> e <code>&lt;address&gt;</code>
+
+        <p class="dir"><em>Autor: Desconhecido</em></p>
+
+
+
 </body>
-</html>
+</html> 
