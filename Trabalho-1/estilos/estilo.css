@@ -1,0 +1,20 @@
+/* Títulos */
+
+h1.cen { text-align: center;
+}
+
+
+/* Paragráfos */
+p.cen {  text-align: center;
+
+}
+
+/* Citações */
+blockquote.dir {
+    text-align: right;
+}
+
+/* Corpo da Página */
+body { background-color: gainsboro;
+
+}
