@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas Hierárquicas</title>
+</head>
+<body>
+    <h1>Cursos da FATEC Franca</h1>
+
+    <!--Listas não ordenada, com quadradinhos -->
+        <ul>
+            <li>Análise e desenvolvimento de sistemas</li>      
+            <li>
+                Desenvolvimento de <em>Software</em> Multiplataforma     <!--Lista Ordenada <ol> -->
+                    <!--Dentro de um item lista (<li>), podem ser colocadas outras listas, ordenadas ou não ordenadas-->
+                <ol>
+                    <li>
+                        Semestre
+                        <!--Lista não ordenada com círculos-->
+                            <!--Atributo Start permite começar de um número diferente de 1 em <ol>
+                                Atributo Start não muda com Type="A, I, a, i", contina o uso de números.    
+                            -->
+                        <ol>
+                            <li>Algoritmo e lógica de programação</li>
+                            <li>Desenvolvimento Web I</li>
+                            <li><em>Design</em> Digital</li>
+                            <li>Engenharia de <em>Software</em></li>
+                            <li>Modelagem de Banco de dados</li>
+                            <li>Sistemas Operacionais e Redes em Computadores</li>
+                        </ol>
+                    </li>
+                    <li>
+                        Semestre
+                        <ol start="7">
+                            <li>Banco de Dados Relacionados</li>
+                            <li>Desenvolvimento Web II</li>
+                            <li>Engenharia de <em>Software</em> II</li>
+                            <li>Estrutura de Dados</li>
+                            <li>Matemática para Computação</li>
+                            <li>Técnicas de programação I</li>
+                        </ol>
+                    </li>
+                    <li>
+                        Semestre
+                        <ol start="13">
+                            <li>Álgebra Linear</li>
+                            <li>Banco de Dados Não -Relacional</li>
+                            <li>Desenvolvimento Web III</li>
+                            <li>Gestão Ágil de Projetos de <em>Software</em></li>
+                            <li>Inglês I</li>
+                            <li>Interação Humano Computador</li>
+                            <li>Técnicas de Programação II</li>
+                        </ol>
+                        </li>
+                    <li>
+                        Semestre
+                        <ol start="20">
+                            <li>Estatística Aplicada</li>
+                            <li>Experiência do Usuário</li>
+                            <li>Inglês II</li>
+                            <li>Integração e Entrega Contínua</li>
+                            <li>Internet das Coisas e Aplicações</li>
+                            <li>Laboratório de Des. Web</li>
+                            <li>Programação para Dispositivos Móveis I</li>
+                        </ol>
+                        </li>
+                    <li>
+                        Semestre
+                         <ol start="27">
+                            <li>Aprendizagem de Máquina</li>
+                            <li>Computação em Nuvem I</li>
+                            <li>Fundamento da Redação Técnica</li>
+                            <li>Inglês III</li>
+                            <li>Lab. de Des. p/ Dispositivos Móveis</li>
+                            <li>Programação para Dispositivos Móveis II</li>
+                            <li>Segurança no Desenvolvimento de Aplicações</li>
+                         </ol>
+                    </li>                     
+                    <li>
+                        Semestre
+                        <ol start="34">
+                            <li>Computação em Nuvem II</li>
+                            <li>Ética Profissional e Potente</li>
+                            <li>Inglês IV</li>
+                            <li>Lab. de Des. Multiplataforma</li>
+                            <li>Mineração de Dados</li>
+                            <li>Processamento de Linguagem Natural</li>
+                            <li>Qualidade e Teste de <em>Software</em></li>
+                    </li>    
+                </ol>
+            </li>
+            <li>Gestão de Produção Industrial</li>
+            <li>Gestão de Recursos Humanos</li>
+            <li>Gestão Empresarial (EaD)</li>
+        </ul>
+</body>
+</html>
