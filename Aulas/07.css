@@ -7,7 +7,7 @@ a {
 /* Links já visitados */
 
 a:visited {
-    color: greenyellow;
+    color: green; /* brightness não é aplicável para "a:visited" */
     filter: brightness(50%); /* Cor 50% mais escura */
 }
 
@@ -15,6 +15,6 @@ a:visited {
 
 a:hover{
     color: orange; 
-    filter: brightness(150%); /* Cor 20% mais brilhante */
+    filter: brightness(120%); /* Cor 20% mais brilhante */
     text-decoration: underline; /* Volta o sublinhado do link */
 }
