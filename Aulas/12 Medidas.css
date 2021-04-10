@@ -20,7 +20,13 @@
 html { /* Elemento Raiz */
     font-size: 20px;
 }
-div {
+
+    /* Hierarquia de Regras CSS 
+        1) Regras de #id prevalecem sobre regras de .classe
+        2) Regras de .classe prevalecem sobre regras de elemento
+        3) Entre regras do mesmo tipo, prevalece a que foi aplicada por último
+    */
+div { /* Regra de elemento, se aplica a todos os divs */
     padding: 20px;
     border: 2px solid black;
     margin: 10px; 
@@ -55,4 +61,12 @@ div {
     background-color: midnightblue;
     font-size: 3rem; /* 3 * 20px do tamanho da fonte do elemento raiz = 60 px */
     width: 40vw; /* 40% da largura da janela (e não do pai!) */
+}
+/*Regras de classe começam com 1 ponto. */
+.borda-dif { /*Pode ser aplicada a qualquer objeto*/
+    border: 2px dashed darkkhaki;
+}
+
+div.borda-dif { /*Pode ser aplicada apenas as divs*/
+    border: 2px groove red;
 }
