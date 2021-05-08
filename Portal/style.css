@@ -1,5 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+/*Definição de variáveis */
+
+:root {
+    --cor-primaria: #550000;
+    --cor-secundaria: #FF7F2A;
+    --cor-fundo-clara: #DDDDDD;
+    --cor-fundo-escura: #BBBBBB;
+    --cor-texto-claro: #FFFFFF;
+    --cor-texto-escura: #777777;
+}
+
 /* @import, quando existem, devem ser os primeiros itens de um arquivo CSS */
 
 /* CSS Reset */
@@ -7,6 +18,7 @@
 * { /* Todos os elementos */
     padding: 0;
     margin: 0;
+
     /* Exemplo de familia de fonte SEM serifa
     font-family: 'Calibri', 'Arial', sans; */
 
@@ -15,13 +27,26 @@
 
     /* Exemplo de familia de fonte MONOESPAÇADA 
     font-family: Consolas, 'Courier New', monospace; */
+ 
+    font-family: Raleway, Calibri, Arial, sans;
+    font-size: 16px;
+}
+html {  /* Tamanho da fonte padrão do documento */
+    font-size: 16px;
+}
+/* Cfg de todos os links do site */
+a {
+    color: var(--cor-primaria);
+    text-decoration: none; /* Sem Sublinhado */
+}
 
-    /* Família de fontes da web (webfonts) 
-    font-family: Raleway, Calibri, Arial, sans; */
+a:hover { /* Mouse passando encima do link */
+    color: var(--cor-secundaria);
+    text-decoration: underline; /* Volta o sublinhado */
 }
 
 header {
-    background-color: #550000;
+    background-color: var(--cor-primaria);
     padding: 10px 20px;
 }
 
@@ -31,6 +56,54 @@ nav ul li {
 }
 
 nav {
-    background-color: #FF7F2A; /* Cor do Fundo */
-    color: white; /* Cor do Texto */
+    background-color: var(--cor-secundaria); /* Cor do Fundo */
+    color: var(--cor-texto-claro); /* Cor do Texto */
+}
+
+#content {
+    background-color: var(--cor-fundo-clara);
+    padding: 16px;
+    /* Este elemento e seus filhos usarão flexbox */
+    display: flex;
+    flex-direction: row; /* Os filhos ficarão em linha */
+}
+section{
+    background-color: var(--cor-texto-claro);
+    padding: 10px;
+    margin-bottom: 20px;
+    /* Bordas arredondas */ 
+    border-radius: 10px;
+    /* Sombra (drop-down shadow) */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    flex-grow: 1; /* Uma unidade de largura */
+}
+#principal {
+    flex-grow: 3;
+}
+
+#secundary {
+    margin-left: 20px;
+    background-color: var(--cor-fundo-escura);
+}
+
+section article { /* Article que estão dentro de uma section */
+    margin: 24px 0; /* 24px top/bottom e 0 left/right */
+}
+
+section > h1 { /* Apenas os h1 que são filhos diretos de section */
+    /* Deixar o texto em maiúsculas */
+    text-transform: uppercase;
+    color: var(--cor-secundaria);
+}
+
+article > h1 { /* Só os H1 que são filhos diretos de article */
+        margin-bottom: 6px;
+}
+
+article > h1 > a {
+    font-size: 1.5rem; /* 1.5x o tamanho da fonte do elemento raiz (HTML) */
+}
+
+article > p {
+    color: var(--cor-texto-escura);
 }
