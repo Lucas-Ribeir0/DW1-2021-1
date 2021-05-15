@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
+<head>  
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
     <title>Quebrada On-Line</title>
 </head>
 <body>
     <header> <!-- Cabeçalho -->
-        <img id="logo" src="img/qol-logo-300px.png" alt="Quebrada On-Line">
+        <img id="logo" src="img/qol-logo-300px.png" alst="Quebrada On-Line">
     </header>
 
     <nav> <!-- Menu -->
@@ -25,7 +30,7 @@
     </nav>
 
     <div id="content"> <!-- Área de conteúdo -->
-        <section id="principal"> <!-- Section - agrupador de conteúdos semelhantes -->
+        <main> <!-- Divisão principal do sites -->
             <!-- Dentro de uma section, segundo as especificações, espera-se ter um título -->
             <h1>Notícias</h1>
 
@@ -33,7 +38,7 @@
                 <h2>Social</h2>
                 <h1><a href="#">Tião da venda e Carla manicure se casam após 15 anos de noivado</a></h1>
                 <div class="foto-texto">
-                    <img src="img/noticia01-600px-400px.png" alt="Foto dos noivos" title="Foto: Aleksandr Neplokhov">
+                    <img src="img/noticia01-600px-400px.jpg" alt="Foto dos noivos" title="Foto: Aleksandr Neplokhov">
                     <p>Festa de casamento foi interrompida pelos fiscais da vigilância sanitária</p>
                 </div>
             </article>
@@ -55,21 +60,34 @@
                 <h1><a href="#">Preço do litrão já se aproxima de R$ 15</a></h1>
                 <p>População revoltada contra o aumento de preços promovidos por Ademar do Bar</p>
             </article>
-        </section>
-        <section id="secundary">
-            <h1>Conteúdo Relacionado</h1>
+        </main>
+        <aside>
+            <article>
+                <img src="img/relacionado01-320x240.jpg" alt="Foto de folhas" title="Foto: sohail">
+                <h1><a href="#">Mulher do verdureiro emagrece 30kg tomando chá e coca na quebrada; SAIBA MAIS</a></h1>
+            </article>
 
-            <aside>
-                    <img src="img/relacionado01-320x240.png" alt="Foto de folhas" title="Foto: sohail">
-                    <h1><a href="#">Mulher do verdureiro emagrece 30kg tomando chá e coca na quebrada; SAIBA MAIS<a></a></h1>
-            </aside>
+            <article>
+                <img src="img/relacionado02-320x240.jpg" alt="Homem bem sucedido" title="Foto: Andrea Piacquadio">
+                <h1><a href="">Tenho uma oportunidade para você! NÃO É PIRÂMIDE</a></h1>
+            </article>
 
-        </section>
+        </aside>
 
     </div>
 
     <footer> <!-- Rodapé-->
-
+        <ul>
+            <li><a href="#">Quem somos</a></li>
+            <li><a href="#">Nossa missão</a></li>
+            <li><a href="#">Comercial</a></li>
+        </ul>   
+        <address>
+            Rua do Sobe e Desce, 33<br>
+            Morro Alto de Cima/SP<br>
+            <a href="tel:+55166661111">(16) 6666-1111</a><br>
+            <a href="mailto:contato@qol.com.br">contato@qol.com.br</a>
+        </address>
     </footer>
 </body>
 </html>
