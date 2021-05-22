@@ -31,6 +31,8 @@
  
     font-family: Raleway, Calibri, Arial, sans;
     font-size: 16px;
+    /* Faz com que bordas e margens sejam considerados no tamanho total do elemento */
+    box-sizing: border-box;
 }
 html {  /* Tamanho da fonte padrão do documento */
     font-size: 16px;
@@ -124,6 +126,7 @@ main, aside{
     /* Sombra (drop-down shadow) */
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
     flex-grow: 1; /* Uma unidade de largura */
+    max-width: 100%;
 }
 main {
     width: 75%;
@@ -138,6 +141,7 @@ aside {
 aside > article > img {
     display: block;
     margin: 0 auto; /* Margin auto à esquerda e à direita centraliza o elemento quando este é display: block */
+    max-width: 100%; /* Largura máxima é 100% da largura do pai */
 }
 
 aside > article > h1 > a {
@@ -195,6 +199,7 @@ article > h2 {
     width: 450px;
     border-radius: 4px;
     margin-right: 24px;
+    max-width: 100%; /* Largura máxima limitada à largura do pai */
 }
 
 .foto-texto {
@@ -228,4 +233,60 @@ footer ul li {
 /* Tirar a borda da direita do último li */
 footer ul li:last-child {
     border-right: none;
+}
+
+/* Regras para larguras especificas de tela */
+@media screen and (max-width: 1027px) { /* Breakpoint (ponto de quebra) */
+    main {
+        width: 60%;
+    }
+    aside {
+        width: 40%;
+    }
+    .foto-texto {
+        flex-direction: column; /* Os filhos ficarão em linha */
+    }
+    .destaque img {
+        margin-right : 0;
+        margin-bottom: 24px;
+    }    
+}
+
+@media screen and (max-width: 800px) {
+    /* Pendente: Colocar o menu em um botão */
+    
+    #content {
+        flex-direction: column;
+    }
+    main {
+        width: 100%;
+    }
+    aside {
+        width: 100%;
+        margin-left: 0;
+    }
+    aside > article > h1 {
+        text-align: center;
+    }
+    .destaque img {
+        /* Centralizar a imagem */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    footer {
+        flex-direction: column;
+    }
+    footer > * { /* Todos os filhos diretos do footer */
+        margin-bottom: 12px;
+    }
+    footer ul li:first-child { /* Só o primeiro (first-child) */
+        padding-left: 0;
+    }
+    /* Coisa de baiano.
+    footer address {
+        text-align: right;
+    } */
+}
+@media screen and (max-width: 640px) {
+    /* Colocar o logo principal e os icones de redes sociais em coluna */
 }
