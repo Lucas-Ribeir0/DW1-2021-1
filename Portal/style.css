@@ -1,49 +1,48 @@
+/* @import, quando existem, devem ser o primeiro item de um arquivo CSS */
 @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-/*Definição de variáveis */
-
+/* Definição de variáveis */
 :root {
     --cor-primaria: #550000;
     --cor-secundaria: #FF7F2A;
-    --cor-terciaria: #FFAF7B;
+    --cor-secundaria-clara: #FFAF7B;
     --cor-fundo-clara: #DDDDDD;
     --cor-fundo-escura: #BBBBBB;
     --cor-texto-claro: #FFFFFF;
     --cor-texto-escura: #777777;
 }
 
-/* @import, quando existem, devem ser os primeiros itens de um arquivo CSS */
-
-/* CSS Reset */
-
+/* CSS reset */
 * { /* Todos os elementos */
     padding: 0;
     margin: 0;
+    /* Exemplo de família de fonte SEM serifa
+    font-family: Calibri, Arial, sans; */
 
-    /* Exemplo de familia de fonte SEM serifa
-    font-family: 'Calibri', 'Arial', sans; */
+    /* Exemplo de família de fonte COM serifa
+    font-family: Georgia, 'Times New Roman', serif; */
 
-    /* Exemplo de familia de fonte COM serifa
-    font-family: 'Times New Roman', Georgia, serif; */
-
-    /* Exemplo de familia de fonte MONOESPAÇADA 
+    /* Exemplo de família de fonte MONOESPAÇADA 
     font-family: Consolas, 'Courier New', monospace; */
- 
+
+    /* Família de fontes da web (webfonts) */
     font-family: Raleway, Calibri, Arial, sans;
     font-size: 16px;
     /* Faz com que bordas e margens sejam considerados no tamanho total do elemento */
     box-sizing: border-box;
+    
 }
-html {  /* Tamanho da fonte padrão do documento */
+html {                  /* Tamanho de fonte padrão do documento */
     font-size: 16px;
 }
-/* Cfg de todos os links do site */
+
+/* Configuração de todos os links do site */
 a {
     color: var(--cor-primaria);
-    text-decoration: none; /* Sem Sublinhado */
+    text-decoration: none;  /* Sem sublinhado */
 }
 
-a:hover { /* Mouse passando encima do link */
+a:hover {   /* Mouse passando em cima do link */
     color: var(--cor-secundaria);
     text-decoration: underline; /* Volta o sublinhado */
 }
@@ -56,17 +55,13 @@ header {
 }
 
 #social {
-    background-color: transparent; /* Sem cor de fundo */
-}
-
-#social span {
-    margin-left: 6px;
-    display: none; /* esconder o texto dos links */
-    transition: display 2ms width 2ms;
+    background-color: transparent;  /* Tira a cor de fundo */
+    display: flex;
+    align-items: center;
 }
 
 #social img {
-    width: 32px;    
+    width: 32px;
 }
 
 #social a {
@@ -76,18 +71,23 @@ header {
     align-items: center;
 }
 
+#social a span {
+    margin-left: 6px;
+    display: none; /* Esconder o texto dos links */
+}
+
 #social a:hover span {
-    display: inline; /* mostra novamente o texto ao passar o mouse por cima */
+    display: inline;  /* Mostra novamente o texto ao passar o mouse */  
 }
 
 nav ul li {
-    display: inline-block;
+    display: inline-block;  /* Deixa o menu na horizontal */
     margin: 10px;
 }
 
 nav {
-    background-color: var(--cor-secundaria); /* Cor do Fundo */
-    color: var(--cor-texto-claro); /* Cor do Texto */
+    background-color: var(--cor-secundaria);  /* Cor do fundo */
+    color: var(--cor-texto-claro);             /* Cor do texto */
 }
 
 #menu {
@@ -95,14 +95,17 @@ nav {
 }
 
 #menu li {
-    margin: 10 0;
+    margin: 10px 0;
 }
 
+
 #menu a {
-    padding: 10px;
-    color: white;
+    height: 100%;
+    padding: 10px 20px;
+    color: #FFFFFF;
     transition: 300ms;
     background-color: var(--cor-secundaria);
+    margin-top: 48px;
 }
 
 #menu a:hover {
@@ -110,61 +113,92 @@ nav {
     text-decoration: none;
 }
 
+#menu-contraido {
+    display: inline-block;
+    position: relative;
+}
+
+#menu-contraido input, #menu-contraido span {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Só irão aparecer de 800px para baixo */
+    display: none;
+}
+
+#menu-contraido input {
+    z-index: 100; /* Traz o input para cima */ 
+    opacity: 0; /* Esconde o input */  
+    display:none 
+}
+
+
+#menu-contraido span {
+    display: block;
+    background-color: var(--cor-primaria);
+    border-radius: 4px;
+    border: 2px solid #FFFFFF;
+    background-image: url('img/menu-icon-48x48.png');
+    background-size: 40px 40px;
+    background-position: center center;
+    cursor: pointer; /* Cursor de mãozinha */
+    display:none;
+}
+
+/* Seletor ~: seleciona o próximo elemento (irmão) */
+#menu-contraido input:checked ~ span {
+    /* Troca a imagem */
+    background-image: url('img/close-icon-48x48.png');
+}
+
 #content {
     background-color: var(--cor-fundo-clara);
-    padding: 16px;
+    padding: 20px;
     /* Este elemento e seus filhos usarão flexbox */
     display: flex;
-    flex-direction: row; /* Os filhos ficarão em linha */
+    flex-direction: row; /* Os filhos ficarão em linha, na horizontal */
 }
-main, aside{
+
+main, aside {
     background-color: var(--cor-texto-claro);
     padding: 24px;
     margin-bottom: 20px;
-    /* Bordas arredondas */ 
+    /* Bordas arrendondadas */
     border-radius: 10px;
     /* Sombra (drop-down shadow) */
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
-    flex-grow: 1; /* Uma unidade de largura */
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.25);
+    flex-grow: 1;   /* 1 unidade de largura (padrão) */
     max-width: 100%;
 }
+
 main {
     width: 75%;
 }
 
 aside {
-    width: 25%;
     margin-left: 20px;
     background-color: var(--cor-fundo-escura);
+    width: 25%;
 }
 
-aside > article > img {
-    display: block;
-    margin: 0 auto; /* Margin auto à esquerda e à direita centraliza o elemento quando este é display: block */
-    max-width: 100%; /* Largura máxima é 100% da largura do pai */
+main article, aside article {   /* article que estão de dentro de main ou aside */
+    margin: 24px 0;     /* 24px top/bottom, 0 left/right */
 }
 
-aside > article > h1 > a {
-    font-size: 1rem;
-    color: #000000;
-}
-
-main article, aside article { /* Article que estão dentro de um main, ou aside */
-    margin: 24px 0; /* 24px top/bottom e 0 left/right */
-}
-
-main > h1, aside > h1 { /* Apenas os h1 que são filhos diretos de main ou aside */
+main > h1, aside > h1 {          /* Apenas os h1 que são filhos diretos de main ou aside */
     /* Deixar o texto em maiúsculas */
     text-transform: uppercase;
     color: var(--cor-secundaria);
 }
 
-article > h1 { /* Só os H1 que são filhos diretos de article */
-        margin-bottom: 6px;
+article > h1 {    /* Só os h1 que são filhos diretos de article */
+    margin-bottom: 6px;
 }
 
 article > h1 > a {
-    font-size: 1.5rem; /* 1.5x o tamanho da fonte do elemento raiz (HTML) */
+    font-size: 1.5rem;      /* 1.5x o tamanho da fonte do elemento raiz (html) */
 }
 
 article > p {
@@ -173,13 +207,13 @@ article > p {
 
 article > h2 {
     font-size: 0.8rem;
-    text-transform: uppercase; /* Todas as letras MAIÚSCULAS */
+    text-transform: uppercase; /* Todas as letras em maiúsculas */
 }
 
 .destaque {
-    background-color: var(--cor-terciaria);
+    background-color: var(--cor-secundaria-clara);
     padding: 24px;
-    border-radius: 6px; /* Bordas levemente arredondadas */
+    border-radius: 4px;  /* Bordas LEVEMENTE arredondadas */
 }
 
 .destaque p {
@@ -197,23 +231,60 @@ article > h2 {
 
 .destaque img {
     width: 450px;
-    border-radius: 4px;
     margin-right: 24px;
-    max-width: 100%; /* Largura máxima limitada à largura do pai */
+    border-radius: 4px;
+    /* Largura máxima limitada à largura do pai */
+    max-width: 100%;
 }
 
 .foto-texto {
     display: flex;
-    flex-direction: row; /* Os filhos ficarão em linha */
+    flex-direction: row; /* Os filhos ficarão em linha, na horizontal */
+}
+
+aside > article > img {
+    display: block;
+    /* margin auto à esquerda e à direita centraliza o elemento quando este é
+       display: block */
+    margin: 0 auto;
+    border-radius: 4px; /* Borda arredondada */ 
+    /* Largura máxima é 100% da largura do pai */
+    max-width: 100%;
+}
+
+aside > article > h1 > a {
+    font-size: 1rem;
+    color: #000000;
+}
+
+aside > article > h1 {
+    margin-top: 6px;
 }
 
 footer {
     background-color: var(--cor-primaria);
     padding: 24px;
-    color: #FFFFFF;
+    color: #ffffff;
     display: flex;
     flex-direction: row;
-    justify-content: space-around; /* Espaço automaticamente entre os itens de um flexbox*/   
+    /* Dá espaço automaticamente entre os itens de um flexbox */
+    justify-content: space-around;
+}
+
+footer a {
+    color: #ffffff;
+    
+}
+
+footer ul li {
+    display: inline-block;  /* Coloca os itens de uma lista na horizontal */
+    padding: 0 12px;
+    border-right: 2px solid #ffffff;
+}
+
+/* Tirar a borda direita do último li */
+footer ul li:last-child {
+    border-right: none;
 }
 
 footer img {
@@ -221,22 +292,8 @@ footer img {
     height: 100%;
 }
 
-footer a {
-    color: #FFFFFF;
-}
-
-footer ul li {
-    display: inline-block; /* Itens de uma lista na horizontal */ 
-    padding: 0 16px;
-    border-right: 2px solid #FFFFFF;
-}
-/* Tirar a borda da direita do último li */
-footer ul li:last-child {
-    border-right: none;
-}
-
-/* Regras para larguras especificas de tela */
-@media screen and (max-width: 1027px) { /* Breakpoint (ponto de quebra) */
+/* Regras para larguras específicas de tela */
+@media screen and (max-width: 1020px) {  /* Breakpoint (ponto de quebra) */
     main {
         width: 60%;
     }
@@ -244,26 +301,51 @@ footer ul li:last-child {
         width: 40%;
     }
     .foto-texto {
-        flex-direction: column; /* Os filhos ficarão em linha */
+        flex-direction: column; /* Os filhos ficarão em coluna, na vertical */
     }
     .destaque img {
-        margin-right : 0;
+        margin-right: 0;
         margin-bottom: 24px;
-    }    
+    }
 }
 
 @media screen and (max-width: 800px) {
-    /* Pendente: Colocar o menu em um botão */
-    
+    #menu {
+        min-height: 88px;
+    }
+    #menu ul {
+        margin-top: 50px;
+        margin-left: -16px;
+        width: 100%;
+    }    
+    #menu ul li {
+        display: block;
+        margin: 0;
+        padding: 12px 0;
+    }
+    #menu-contraido {
+        margin-top: 24px;
+        width: 100%;
+    }
+    #menu-contraido ul {
+        display: none;
+    }
+    /* Mostra o botão do menu */
+    #menu-contraido input, #menu-contraido span {
+        display: block;
+    }
+    #menu-contraido input:checked ~ ul {
+        display: block;
+    }
     #content {
-        flex-direction: column;
+        flex-direction: column; /* Os filhos ficarão em coluna, na vertical */
     }
     main {
         width: 100%;
     }
     aside {
-        width: 100%;
         margin-left: 0;
+        width: 100%;
     }
     aside > article > h1 {
         text-align: center;
@@ -276,17 +358,19 @@ footer ul li:last-child {
     footer {
         flex-direction: column;
     }
-    footer > * { /* Todos os filhos diretos do footer */
+    footer > * {    /* Todos os filhos DIRETOS de footer */
         margin-bottom: 12px;
     }
-    footer ul li:first-child { /* Só o primeiro (first-child) */
+    footer ul li:first-child {  /* Só o primeiro (first-child) li */
         padding-left: 0;
     }
-    /* Coisa de baiano.
     footer address {
         text-align: right;
-    } */
+    }
 }
+
 @media screen and (max-width: 640px) {
-    /* Colocar o logo principal e os icones de redes sociais em coluna */
+    /*
+        A FAZER: colocar o logo principal e os ícones de redes sociais em coluna
+    */
 }

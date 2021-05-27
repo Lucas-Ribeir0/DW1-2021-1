@@ -1,0 +1,331 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+/*Definição de variáveis */
+
+:root {
+    --cor-primaria: #550000;
+    --cor-secundaria: #FF7F2A;
+    --cor-terciaria: #FFAF7B;
+    --cor-fundo-clara: #DDDDDD;
+    --cor-fundo-escura: #BBBBBB;
+    --cor-texto-claro: #FFFFFF;
+    --cor-texto-escura: #777777;
+}
+
+/* @import, quando existem, devem ser os primeiros itens de um arquivo CSS */
+
+/* CSS Reset */
+
+* { /* Todos os elementos */
+    padding: 0;
+    margin: 0;
+
+    /* Exemplo de familia de fonte SEM serifa
+    font-family: 'Calibri', 'Arial', sans; */
+
+    /* Exemplo de familia de fonte COM serifa
+    font-family: 'Times New Roman', Georgia, serif; */
+
+    /* Exemplo de familia de fonte MONOESPAÇADA 
+    font-family: Consolas, 'Courier New', monospace; */
+ 
+    font-family: Raleway, Calibri, Arial, sans;
+    font-size: 16px;
+    /* Faz com que bordas e margens sejam considerados no tamanho total do elemento */
+    box-sizing: border-box;
+}
+html {  /* Tamanho da fonte padrão do documento */
+    font-size: 16px;
+}
+/* Cfg de todos os links do site */
+a {
+    color: var(--cor-primaria);
+    text-decoration: none; /* Sem Sublinhado */
+}
+
+a:hover { /* Mouse passando encima do link */
+    color: var(--cor-secundaria);
+    text-decoration: underline; /* Volta o sublinhado */
+}
+
+header {
+    background-color: var(--cor-primaria);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#social {
+    background-color: transparent; /* Sem cor de fundo */
+}
+
+#social span {
+    margin-left: 6px;
+    display: none; /* esconder o texto dos links */
+    transition: display 2ms width 2ms;
+}
+
+#social img {
+    width: 32px;    
+}
+
+#social a {
+    color: #FFFFFF;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+#social a:hover span {
+    display: inline; /* mostra novamente o texto ao passar o mouse por cima */
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 10px;
+}
+
+nav {
+    background-color: var(--cor-secundaria); /* Cor do Fundo */
+    color: var(--cor-texto-claro); /* Cor do Texto */
+}
+
+#menu {
+    padding: 0 20px;
+}
+
+#menu li {
+    margin: 10 0;
+}
+
+#menu a {
+    padding: 10px;
+    color: white;
+    transition: 300ms;
+    background-color: var(--cor-secundaria);
+}
+
+#menu a:hover {
+    filter: brightness(0.8); /* Diminui o brilho em 20%, deixando mais escuro */
+    text-decoration: none;
+}
+
+#menu-contraido {
+    margin-top: 24px;
+    display: inline-block;
+    position: relative;
+}
+
+#menu-contraido input, #menu-contraido span {
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    top: 0;
+    left: 0;    
+}
+
+#menu-contraido span {
+    display: block;
+    background-color: var(--cor-primaria);
+    border-radius: 4px;
+    border: 2px solid #FFFFFF;
+    background-image: url('img/menu-icon-48x48.png');
+    background-size: 42px 42px;
+    background-position: center center;
+    cursor: pointer;
+    margin-bottom: 48px;
+}
+/* Seletor " ~ " seleciona o próximo elemento (irmão) */
+#menu-contraido input:checked ~ span {
+    /* Troca a imagem */
+    background-image: url('img/close-icon-48x48.png');
+}
+#menu-contraido input {
+    z-index: 100; /* Traz o índice para cima */
+    opacity: 0;
+}
+
+
+#content {
+    background-color: var(--cor-fundo-clara);
+    padding: 16px;
+    /* Este elemento e seus filhos usarão flexbox */
+    display: flex;
+    flex-direction: row; /* Os filhos ficarão em linha */
+}
+main, aside{
+    background-color: var(--cor-texto-claro);
+    padding: 24px;
+    margin-bottom: 20px;
+    /* Bordas arredondas */ 
+    border-radius: 10px;
+    /* Sombra (drop-down shadow) */
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25);
+    flex-grow: 1; /* Uma unidade de largura */
+    max-width: 100%;
+}
+main {
+    width: 75%;
+}
+
+aside {
+    width: 25%;
+    margin-left: 20px;
+    background-color: var(--cor-fundo-escura);
+}
+
+aside > article > img {
+    display: block;
+    margin: 0 auto; /* Margin auto à esquerda e à direita centraliza o elemento quando este é display: block */
+    max-width: 100%; /* Largura máxima é 100% da largura do pai */
+}
+
+aside > article > h1 > a {
+    font-size: 1rem;
+    color: #000000;
+}
+
+main article, aside article { /* Article que estão dentro de um main, ou aside */
+    margin: 24px 0; /* 24px top/bottom e 0 left/right */
+}
+
+main > h1, aside > h1 { /* Apenas os h1 que são filhos diretos de main ou aside */
+    /* Deixar o texto em maiúsculas */
+    text-transform: uppercase;
+    color: var(--cor-secundaria);
+}
+
+article > h1 { /* Só os H1 que são filhos diretos de article */
+        margin-bottom: 6px;
+}
+
+article > h1 > a {
+    font-size: 1.5rem; /* 1.5x o tamanho da fonte do elemento raiz (HTML) */
+}
+
+article > p {
+    color: var(--cor-texto-escura);
+}
+
+article > h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase; /* Todas as letras MAIÚSCULAS */
+}
+
+.destaque {
+    background-color: var(--cor-terciaria);
+    padding: 24px;
+    border-radius: 6px; /* Bordas levemente arredondadas */
+}
+
+.destaque p {
+    color: #000000;
+    font-size: 1.5rem;
+}
+
+.destaque > h1 > a {
+    font-size: 2.5rem;
+}
+
+.destaque > h2 {
+    font-size: 1rem;
+}
+
+.destaque img {
+    width: 450px;
+    border-radius: 4px;
+    margin-right: 24px;
+    max-width: 100%; /* Largura máxima limitada à largura do pai */
+}
+
+.foto-texto {
+    display: flex;
+    flex-direction: row; /* Os filhos ficarão em linha */
+}
+
+footer {
+    background-color: var(--cor-primaria);
+    padding: 24px;
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; /* Espaço automaticamente entre os itens de um flexbox*/   
+}
+
+footer img {
+    width: 200px;
+    height: 100%;
+}
+
+footer a {
+    color: #FFFFFF;
+}
+
+footer ul li {
+    display: inline-block; /* Itens de uma lista na horizontal */ 
+    padding: 0 16px;
+    border-right: 2px solid #FFFFFF;
+}
+/* Tirar a borda da direita do último li */
+footer ul li:last-child {
+    border-right: none;
+}
+
+/* Regras para larguras especificas de tela */
+@media screen and (max-width: 1027px) { /* Breakpoint (ponto de quebra) */
+    main {
+        width: 60%;
+    }
+    aside {
+        width: 40%;
+    }
+    .foto-texto {
+        flex-direction: column; /* Os filhos ficarão em linha */
+    }
+    .destaque img {
+        margin-right : 0;
+        margin-bottom: 24px;
+    }    
+}
+
+@media screen and (max-width: 800px) {
+    /* Pendente: Colocar o menu em um botão */
+    #menu ul li {
+        display: block;
+    }
+
+    #content {
+        flex-direction: column;
+    }
+    main {
+        width: 100%;
+    }
+    aside {
+        width: 100%;
+        margin-left: 0;
+    }
+    aside > article > h1 {
+        text-align: center;
+    }
+    .destaque img {
+        /* Centralizar a imagem */
+        margin-left: auto;
+        margin-right: auto;
+    }
+    footer {
+        flex-direction: column;
+    }
+    footer > * { /* Todos os filhos diretos do footer */
+        margin-bottom: 12px;
+    }
+    footer ul li:first-child { /* Só o primeiro (first-child) */
+        padding-left: 0;
+    }
+    /* Coisa de baiano.
+    footer address {
+        text-align: right;
+    } */
+}
+@media screen and (max-width: 640px) {
+    /* Colocar o logo principal e os icones de redes sociais em coluna */
+}
